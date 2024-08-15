@@ -1,20 +1,25 @@
-
 import { useDispatch } from "react-redux";
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import { addContact } from "../../redux/contacts/operations";
+import toast, { Toaster } from 'react-hot-toast';
 import * as Yup from "yup";
-import { addContact } from "../../redux/contactsOps";
 import css from "./ContactForm.module.css";
 
 export default function ContactForm() {
     const dispatch = useDispatch();
 
-    const handleSubmit = (values, actions) => {
+    const handleSubmit = async (values, actions) => {
         const newContact = {
             name: values.username,
             number: values.number,
         };
-        dispatch(addContact(newContact));
-        actions.resetForm();
+        try {
+            await dispatch(addContact(newContact)).unwrap();
+            toast.success("Successfully added!");
+            actions.resetForm();
+        } catch (error) {
+            toast.error("Failed to add contact");
+        }
     };
 
     const FeedbackSchema = Yup.object().shape({
@@ -42,6 +47,13 @@ export default function ContactForm() {
                 </div>
 
                 <button className={css.btn} type="submit">Add contact</button>
+                <Toaster toastOptions={{
+                    style: {
+                        display: "flex",
+                        marginTop: "70px"
+                    },
+                }}
+                />
             </Form>
         </Formik>
     );

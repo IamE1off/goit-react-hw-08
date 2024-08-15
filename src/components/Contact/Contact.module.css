@@ -6,7 +6,8 @@
   border-radius: 4px;
   padding: 10px;
   width: 100%;
-  max-width: 250px;
+  max-width: 300px;
+  margin-bottom: 20px;
 }
 
 .info {
@@ -22,15 +23,16 @@
 }
 
 .btn {
-  border: 1px solid gray;
+  border: 1px solid black;
   border-radius: 3px;
-  background-color: rgb(237, 234, 234);
+  background-color: white;
   width: 70px;
   height: 30px;
   font-size: 18px;
-  margin-left: 10px;
+  margin-left: 15px;
 }
 
 .btn:hover {
-  background-color: rgb(200, 197, 197);
+  border: 2px solid darkred;
+  color: darkred;
 }

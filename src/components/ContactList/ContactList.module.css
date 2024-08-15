@@ -1,5 +1,7 @@
 .list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+}
+.liElement{
+  margin-right: 50px;
 }
