@@ -1,0 +1,24 @@
+.container{
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  gap: 50px;
+  align-items: center;
+}
+.txt{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-size: 22px;
+  font-weight: bold;
+  
+}
+.logTxt{
+  line-height: 100px;
+  font-size: 25px;
+}
+
+.logTxt:hover, .logTxt:active {
+  text-decoration: underline;
+  color: darkred;
+}
